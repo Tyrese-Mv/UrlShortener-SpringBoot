@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title >Default Title</title>
+
+
+<!--    <link rel="stylesheet" th:href="@{/css/common.css}">-->
+<!--    -->
+<!--    <th:block th:replace="${css}" />-->
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a th:href="@{/}">Home</a></li>
+        <li><a th:href="@{/about}">About</a></li>
+        <li><a th:href="@{/shortener}">Shorten Your URL</a></li>
+    </ul>
+</nav>
+<main>
+    <div layout:fragment="content">
+    </div>
+</main>
+
+
+
+<!-- Common JavaScript -->
+<!--<script th:src="@{/js/common.js}"></script>-->
+
+<!-- Placeholder for page-specific JavaScript -->
+<!--<th:block th:replace="${javascript}" />-->
+</body>
+</html>
