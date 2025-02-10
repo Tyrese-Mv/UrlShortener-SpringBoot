@@ -15,11 +15,15 @@
 <!--    <th:block th:replace="${css}" />-->
 </head>
 <body>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v22.0&appId=919100257088195"></script>
 
 <nav>
     <ul>
         <li><a th:href="@{/}">Home</a></li>
         <li><a th:href="@{/about}">About</a></li>
+<!--        for Now                -->
+        <li><a th:href="@{/privacy-policy}">privacy policy</a></li>
         <li><a th:href="@{/shortener}">Shorten Your URL</a></li>
     </ul>
 </nav>

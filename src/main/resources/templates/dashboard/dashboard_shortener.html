@@ -3,7 +3,7 @@
 <html
         xmlns:th="http://www.thymeleaf.org"
         xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-        layout:decorate="~{/layout.html}">
+        layout:decorate="~{/dashboard_layout.html}">
 
 <head>
     <title>Shortener</title>
@@ -20,8 +20,6 @@
         <input type="text" id="url" name="url" required>
         <button type="submit">Shorten</button>
     </form>
-    <div th:if="${message}" th:text="${message}"></div>
-    <a><a th:href="@{/UrlManager}">Do you want to manage your URLs</a>
 </div>
 
 

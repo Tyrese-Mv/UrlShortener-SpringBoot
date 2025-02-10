@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{/layout.html}">
+
+<head>
+    <title>Login</title>
+    <!-- Page specific CSS -->
+    <!--    <link rel="stylesheet" th:href="@{/css/home.css}">-->
+
+</head>
+<body>
+
+    <div layout:fragment="content">
+        <h1>Login</h1>
+
+
+        <form th:action="@{/login}" method="post">
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" required>
+            <label for="password">Password:</label>
+            <input type="text" name="password" id="password" required>
+            <button type="submit">Login</button>
+        </form>
+        <div class="fb-login-button" data-width="10" data-size="" data-button-type="" data-layout="" data-auto-logout-link="true" data-use-continue-as="true"></div>
+        <a href="/oauth2/authorization/google">
+            <button>Login with Google</button>
+        </a>
+    </div>
+
+
+<!-- Page specific JavaScript -->
+<!--<script th:src="@{/js/home.js}"></script>-->
+<!--<div id="fb-root"></div>-->
+<!--<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v22.0&appId=919100257088195"></script>-->
+</body>
+</html>

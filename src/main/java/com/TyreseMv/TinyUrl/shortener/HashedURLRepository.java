@@ -4,6 +4,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 
+/*
+* This repository will be used for storing hashed urls
+* from users who aren't authenticated
+* */
 @Repository
 public class HashedURLRepository {
     private HashMap<String, String> urlMap = new HashMap<>();
