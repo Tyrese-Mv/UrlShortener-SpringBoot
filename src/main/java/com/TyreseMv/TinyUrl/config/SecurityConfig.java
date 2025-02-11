@@ -35,19 +35,19 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable) // Disable CSRF (not recommended for forms)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/css/**", "/js/**").permitAll()  // Allow static files
-                        .requestMatchers("/shortener/**").authenticated() // Require USER role
+                        .requestMatchers("/dashboard/**").authenticated()
                         .requestMatchers("/").permitAll() // Public access
                         .anyRequest().permitAll() // Any other request requires authentication
                 )
                 .formLogin(form -> form
                         .loginPage("/login") // Custom login page
-                        .defaultSuccessUrl("/home", true) // Redirect after successful login
+                        .defaultSuccessUrl("/dashboard", true) // Redirect after successful login
                         .permitAll() // Allow everyone to access login page
                 )
                 .oauth2Login(oauth2 -> oauth2
                         .loginPage("/login") // Custom login page
                         .successHandler(successHandler)
-                        .defaultSuccessUrl("/home", true) // Redirect after successful login
+                        .defaultSuccessUrl("/dashboard", true) // Redirect after successful login
                         .permitAll()
                 ) // Allow everyone to access login page)
                 .logout(logout -> logout

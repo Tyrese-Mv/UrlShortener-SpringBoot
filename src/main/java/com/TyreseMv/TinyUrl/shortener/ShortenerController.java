@@ -38,7 +38,7 @@ public class ShortenerController {
     }
     @GetMapping("/dashboard/shortener")
     public String PersonalShortener() {
-        return "dashboard_shortener";
+        return "dashboard/dashboard_shortener";
     }
 
 
@@ -69,11 +69,11 @@ public class ShortenerController {
             redirectAttributes.addFlashAttribute("message", message);
             urlObj.setUser(currentUser); // sets user to null object
             urlRepository.save(urlObj); //attempt to save the user to the url
-            return "redirect:/shortener";
+            return "redirect:/dashboard/shortener";
         }
         String message = "This URL has already been shortened";
         redirectAttributes.addFlashAttribute("message", message);
-        return "redirect:/shortener";
+        return "redirect:/dashboard/shortener";
 
     }
 
@@ -83,7 +83,7 @@ public class ShortenerController {
 
         String HashedURL = HasherModel.HashURL(url);
 
-        if (!hashedURLRepository.urlExists(HashedURL)){
+        if (hashedURLRepository.urlExists(HashedURL)){
             String message = "This Url already exists: localhost:8080/"+HashedURL;
             redirectAttributes.addFlashAttribute("message", message);
             return "redirect:/shortener";

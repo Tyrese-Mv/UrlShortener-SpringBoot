@@ -14,20 +14,39 @@
 <body>
 
     <div layout:fragment="content">
+        <div class="glass-container">
         <h1>Login</h1>
 
 
         <form th:action="@{/login}" method="post">
-            <label for="username">Username:</label>
-            <input type="text" name="username" id="username" required>
-            <label for="password">Password:</label>
-            <input type="text" name="password" id="password" required>
-            <button type="submit">Login</button>
-        </form>
-        <div class="fb-login-button" data-width="10" data-size="" data-button-type="" data-layout="" data-auto-logout-link="true" data-use-continue-as="true"></div>
-        <a href="/oauth2/authorization/google">
-            <button>Login with Google</button>
-        </a>
+            <div class="input-field col s12">
+                <input id="email" type="email" class="validate">
+                <label for="email">Email:</label>
+            </div>
+<!--            <label for="username">Username:</label>-->
+<!--            <input type="text" name="username" id="username" required>-->
+            <div class="input-field col s12">
+                <label for="password">Password:</label>
+                <input id="password" type="password" name="password" class="validate">
+
+            </div>
+<!--            <label for="password">Password:</label>-->
+<!--            <input type="text" name="password" id="password" required>-->
+            <a>
+                <button class="waves-effect waves-light btn col s12" type="submit">Login</button>
+            </a>
+            </form>
+            <div class="row">
+                <div class="col s12">
+                    <div class="fb-login-button" data-width="10" data-size="" data-button-type="" data-layout="" data-auto-logout-link="true" data-use-continue-as="true"></div>
+                </div>
+                <div class="col s12">
+                    <a href="/oauth2/authorization/google">
+                        <button class="waves-effect waves-light btn col s12">Login with Google</button>
+                    </a>
+                </div>
+            </div>
+    </div>
     </div>
 
 

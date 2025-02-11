@@ -14,7 +14,7 @@ public class HomeController {
 
     @GetMapping("/dashboard")
     public String Dashboard() {
-        return "dashboard_home";
+        return "dashboard/dashboard_home";
     }
 
     @GetMapping("/privacy-policy")
