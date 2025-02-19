@@ -97,8 +97,19 @@ public class ShortenerController {
     @GetMapping("/{HashedURL}")
     public String Redirect(@PathVariable String HashedURL) {
         Url url = urlRepository.findByShortUrl(HashedURL);
-        String longUrl = (url == null) ? hashedURLRepository.getUrl(HashedURL) : url.getLongUrl();
 
+        if (url == null && hashedURLRepository.getUrl(HashedURL) == null){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+
+        String longUrl;
+        if (url == null){
+            longUrl =  hashedURLRepository.getUrl(HashedURL);
+        }else{
+            longUrl = url.getLongUrl();
+            url.setClicks();
+            urlRepository.save(url);
+        }
         return "redirect:"+longUrl;
     }
 

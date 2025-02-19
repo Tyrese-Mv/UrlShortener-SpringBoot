@@ -15,6 +15,19 @@ public class Url {
     @Column(unique = true)
     private String shortUrl;
 
+    private Integer clicks = 0;
+
+    public Integer getClicks() {
+        return clicks;
+    }
+
+    public void setClicks() {
+        if(this.clicks == null) this.clicks = 0;
+        this.clicks += 1;
+    }
+
+
+
     public String getLongUrl() {
         return longUrl;
     }
@@ -30,6 +43,7 @@ public class Url {
     public String getShortUrl() {
         return shortUrl;
     }
+
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = true)

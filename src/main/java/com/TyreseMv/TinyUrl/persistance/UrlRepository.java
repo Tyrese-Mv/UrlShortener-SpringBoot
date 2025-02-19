@@ -6,4 +6,6 @@ public interface UrlRepository extends CrudRepository<Url, Long> {
 
     Url findByShortUrl(String shortUrl);
 
+//    int getNumberOfUrlsByUser(User user);
+
 }

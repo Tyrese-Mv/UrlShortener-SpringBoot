@@ -38,6 +38,12 @@ public class User {
 
     private String email;
 
+    public List<Url> getUrls() {
+        return urls;
+    }
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Url> urls;
+
+
 }
