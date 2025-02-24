@@ -28,12 +28,16 @@
                     <button class="waves-effect waves-light btn col s12 green" type="submit">Shorten</button>
 
                     <div th:if="${message}" th:text="${message}"></div>
-                    <div th:if="${ShortUrl}" th:text="${ShortUrl}"></div>
+                    <div th:id="shortenedUrl" th:if="${ShortUrl}" th:attr="data-url=${ShortUrl}" th:text="${ShortUrl}"></div>
                     <a th:href="@{/dashboard}">Do you want to manage your URLs</a>
                 </div>
 
+
             </form>
+
+            <div id="urlList"></div>
         </div>
+
 
     </div>
 

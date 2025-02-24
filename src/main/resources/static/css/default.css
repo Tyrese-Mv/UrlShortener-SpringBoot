@@ -117,6 +117,16 @@ a:hover:after {
     }
 }
 
+#urlList {
+    list-style-type: none; /* Removes default bullet points */
+    padding: 0;
+}
+
+#urlList li {
+    display: block; /* Ensures list items stack vertically */
+    margin-bottom: 5px; /* Adds space between items */
+}
+
 
 
 

@@ -20,7 +20,7 @@ public class SecurityConfig {
     @Bean
     public InMemoryUserDetailsManager defaultUserDetailsManager() {
         return new InMemoryUserDetailsManager(
-                User.withUsername("Musa")
+                User.withUsername("admin@email.com")
                         .password("{noop}password")
                         .authorities("read", "write")
                         .build()
