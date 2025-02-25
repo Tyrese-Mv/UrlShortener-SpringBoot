@@ -12,6 +12,11 @@ public class HomeController {
         return "Home";
     }
 
+    @GetMapping("/dashboard/reports")
+    public String Report() {
+        return "analytics/reports";
+    }
+
     @GetMapping("/dashboard")
     public String Dashboard() {
         return "dashboard/dashboard_home";
