@@ -1,12 +1,4 @@
-// Grid Options: Contains all of the Data Grid configurations
-const gridOptions = {};
-
-// Your Javascript code to create the Data Grid
-const myGridElement = document.querySelector('#myGrid');
-agGrid.createGrid(myGridElement, gridOptions);
-
-// Grid Options: Contains all of the Data Grid configurations
-const gridOptions = {
+gridOptions = {
     // Row Data: The data to be displayed.
     rowData: [
         { make: "Tesla", model: "Model Y", price: 64950, electric: true },
@@ -21,3 +13,5 @@ const gridOptions = {
         { field: "electric" }
     ]
 };
+const myGridElement = document.querySelector('#myGrid');
+agGrid.createGrid(myGridElement, gridOptions);
