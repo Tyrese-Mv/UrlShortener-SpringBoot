@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT -jar TinyUrl-0.0.1-SNAPSHOT.jar
+web: mvn spring-boot:run -Dspring-boot.run.arguments="--server.port=$PORT"
