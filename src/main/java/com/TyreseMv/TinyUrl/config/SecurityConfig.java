@@ -34,7 +34,7 @@ public class SecurityConfig {
         return  http
                 .csrf(AbstractHttpConfigurer::disable) // Disable CSRF (not recommended for forms)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/css/**", "/js/**").permitAll()  // Allow static files
+                        .requestMatchers("/css/**", "/js/**", "/favicon.ico", "/").permitAll()  // Allow static files
                         .requestMatchers("/dashboard/**").authenticated()
                         .requestMatchers("/").permitAll() // Public access
                         .anyRequest().permitAll() // Any other request requires authentication
