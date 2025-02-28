@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<!--        layout:decorate="~{/dashboard_layout.html}">-->
+
+<head>
+    <title>Shortener</title>
+    <!-- Page specific CSS -->
+    <!--    <link rel="stylesheet" th:href="@{/css/home.css}">-->
+</head>
+<body>
+<div layout:fragment="content">
+    <h1>Number of URLs</h1>
+    <div th:if="${TotalUrls}"  th:text="${TotalUrls}"></div>
+</div>
+
+
+<!-- Page specific JavaScript -->
+<!--<script th:src="@{/js/home.js}"></script>-->
+</body>
+</html>
