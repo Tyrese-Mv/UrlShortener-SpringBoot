@@ -74,11 +74,11 @@ public class ShortenerController {
 
             urlObj.setUser(currentUser); // sets user to null object
             urlRepository.save(urlObj); //attempt to save the user to the url
-            return "/dashboard/shortener";
+            return "dashboard/shortener";
         }
         String message = "This URL has already been shortened";
         model.addAttribute("message", message);
-        return "/dashboard/shortener";
+        return "dashboard/shortener";
 
     }
 
