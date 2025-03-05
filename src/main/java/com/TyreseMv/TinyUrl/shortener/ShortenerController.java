@@ -91,12 +91,12 @@ public class ShortenerController {
         if (hashedURLRepository.urlExists(HashedURL)){
             String message = "This Url already exists: ";
             model.addAttribute("message", message).addAttribute("ShortUrl", baseUrl+HashedURL);
-            return "/shortener";
+            return "Shortener";
         }
         hashedURLRepository.addUrl(HashedURL, url);
         String message = "This is your new URL: ";
         model.addAttribute("message", message).addAttribute("ShortUrl", baseUrl+HashedURL);
-        return "/shortener";
+        return "Shortener";
     }
 
     @GetMapping("/{HashedURL}")
