@@ -27,7 +27,7 @@ public class ShortenerController {
 
     private final HashedURLRepository hashedURLRepository;
 
-    private final String baseUrl = "localhost:8080/";
+    private final String baseUrl = "urlfusion.live/";
 
     public ShortenerController(UrlRepository urlRepository, UserRepository userRepository, HashedURLRepository hashedURLRepository) {
         this.urlRepository = urlRepository;

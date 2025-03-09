@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout}">
+
+<head>
+    <title>Shortener</title>
+    <!-- Page specific CSS -->
+    <!--    <link rel="stylesheet" th:href="@{/css/home.css}">-->
+</head>
+<body>
+<div layout:fragment="content">
+
+    <div class="glass-container">
+        <h1>Shorten Your URL</h1>
+
+
+        <div class="row">
+            <form class="col s12" th:action="@{/shortener}" method="post">
+                <div class="row">
+                    <div class="input-field col s12 ">
+                        <label for="url">URL:</label>
+                        <input type="text" id="url" name="url" required>
+                    </div>
+
+                    <button class="waves-effect waves-light btn col s12 green" type="submit">Shorten</button>
+
+                    <div th:if="${message}" th:text="${message}"></div>
+                    <div th:id="shortenedUrl" th:if="${ShortUrl}" th:attr="data-url=${ShortUrl}" th:text="${ShortUrl}"></div>
+                    <a th:href="@{/dashboard}">Do you want to manage your URLs</a>
+                </div>
+
+
+            </form>
+
+            <div id="urlList"></div>
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- Page specific JavaScript -->
+<script th:src="@{/js/userLinks.js}"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Default Title</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" th:href="@{/css/default.css}">
+</head>
+<body>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v22.0&appId=919100257088195"></script>
+
+
+<header>
+
+    <img class="logo" src="images/logo1.jpg" alt="Logo Placeholder">
+
+    <ul class="list">
+        <li class="link"><a th:href="@{/}">Home</a></li>
+        <li class="link"><a th:href="@{/about}">About</a></li>
+        <li class="link"><a th:href="@{/privacy-policy}">Privacy Policy</a></li>
+        <li class="link"><a th:href="@{/shortener}">Shorten Your URL</a></li>
+    </ul>
+</header>
+<main>
+    <canvas id="canvas"></canvas>
+    <div class="content" layout:fragment="content">
+    </div>
+</main>
+<script th:src="@{/js/canvas.js}"></script>
+<script th:src="@{/js/userLinks.js}"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
