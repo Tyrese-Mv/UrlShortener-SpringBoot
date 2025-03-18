@@ -40,11 +40,22 @@ window.onload = function () {
 
             // Copy to clipboard when clicked
             copyButton.addEventListener("click", function () {
-                navigator.clipboard.writeText(url).then(() => {
-                    M.toast({ html: "URL copied to clipboard!", classes: "green" }); // Toast confirmation
-                }).catch(err => {
-                    console.error("Failed to copy: ", err);
-                });
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(url).then(() => {
+                        M.toast({ html: "URL copied to clipboard!", classes: "green" });
+                    }).catch(err => {
+                        console.error("Failed to copy: ", err);
+                    });
+                } else {
+                    // Fallback for older browsers
+                    const tempInput = document.createElement("input");
+                    document.body.appendChild(tempInput);
+                    tempInput.value = url;
+                    tempInput.select();
+                    document.execCommand("copy");
+                    document.body.removeChild(tempInput);
+                    M.toast({ html: "URL copied (fallback method)!", classes: "green" });
+                }
             });
 
             listItem.appendChild(copyButton);

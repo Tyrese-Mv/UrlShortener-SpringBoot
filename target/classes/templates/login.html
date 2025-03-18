@@ -16,36 +16,42 @@
     <div layout:fragment="content">
         <div class="glass-container">
         <h1>Login</h1>
+        <div class="row">
+            <form class="col s12" th:action="@{/login}" method="post">
+                <div class="row">
+                    <div class="input-field col s12 ">
+                        <input id="email" type="email" class="validate">
+                        <label for="email" >Email:</label>
+                    </div>
+                    <!--            <label for="username">Username:</label>-->
+                    <!--            <input type="text" name="username" id="username" required>-->
+                    <div class="input-field col s12 ">
+                        <label for="password" >Password:</label>
+                        <input id="password" type="password" name="password" class="validate">
+
+                    </div>
+                    <!--            <label for="password">Password:</label>-->
+                    <!--            <input type="text" name="password" id="password" required>-->
+
+                    <button class="waves-effect waves-light btn col s12 green" type="submit">Login</button>
+
+                    <br>
+                    <br>
+
+                    <!--                <div class="col s12">-->
+                    <!--                    <div class="fb-login-button" data-width="10" data-size="" data-button-type="" data-layout="" data-auto-logout-link="true" data-use-continue-as="true"></div>-->
+                    <!--                </div>-->
 
 
-        <form th:action="@{/login}" method="post">
-            <div class="input-field col s12">
-                <input id="email" type="email" class="validate">
-                <label for="email">Email:</label>
-            </div>
-<!--            <label for="username">Username:</label>-->
-<!--            <input type="text" name="username" id="username" required>-->
-            <div class="input-field col s12">
-                <label for="password">Password:</label>
-                <input id="password" type="password" name="password" class="validate">
+                    <button href="/oauth2/authorization/google" class="waves-effect waves-light btn col s12 green">Login with Google</button>
 
-            </div>
-<!--            <label for="password">Password:</label>-->
-<!--            <input type="text" name="password" id="password" required>-->
-            <a>
-                <button class="waves-effect waves-light btn col s12" type="submit">Login</button>
-            </a>
+
+                </div>
             </form>
-            <div class="row">
-                <div class="col s12">
-                    <div class="fb-login-button" data-width="10" data-size="" data-button-type="" data-layout="" data-auto-logout-link="true" data-use-continue-as="true"></div>
-                </div>
-                <div class="col s12">
-                    <a href="/oauth2/authorization/google">
-                        <button class="waves-effect waves-light btn col s12">Login with Google</button>
-                    </a>
-                </div>
-            </div>
+        </div>
+
+
+
     </div>
     </div>
 
