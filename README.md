@@ -2,7 +2,7 @@
 
 TinyURL Clone is a URL shortening service that allows users to shorten long URLs into more manageable links. The application is built with Spring Boot for the backend and HTML,CSS and JavaScript for the frontend.
 
-You can access this project here `urlfusion.live/`
+You can access this project here [urlfusion.live](http://urlfusion.live/)
 ## Features
 
 - Shorten long URLs into concise, shareable links
@@ -80,5 +80,5 @@ Feel free to submit pull requests or open issues to improve the project!
 
 ## Contact
 
-For any inquiries, reach out via [musawenkosi106@gmail.com] or open an issue on GitHub.
+For any inquiries, reach out via [musawenkosi106@gmail.com](musawenkosi106@gmail.com) or open an issue on GitHub.
 
