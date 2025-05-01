@@ -26,27 +26,35 @@ public class OAuth2LoginSuccessHandler implements AuthenticationSuccessHandler {
 //    public OAuth2LoginSuccessHandler(UserRepository userRepository) {
 //        this.userRepository = userRepository;
 //    }
+/*
+ * 1. Extract the OAuth2User from the authentication object
+ * 2. Use the OAuth2User to get the user details
+ * 3. Use the details to check if user already exist from UserRepository
+ * 4. Add the user to UserRepository if they don't exist
+ * */
+@Override
+public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
+    OAuth2User oAuth2User = (OAuth2User) authentication.getPrincipal();
 
-    @Override
-    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-        /*
-        * 1. Extract the OAuth2User from the authentication object
-        * 2. Use the OAuth2User to get the user details
-        * 3. Use the details to check if user already exist from UserRepository
-        * 4. Add the user to UserRepository if they don't exist
-        * */
+    // Debug logging
+    System.out.println("OAuth2User attributes: " + oAuth2User.getAttributes());
 
-        OAuth2User oAuth2User = (OAuth2User) authentication.getPrincipal();
+    String username = oAuth2User.getAttribute("name");
+    String email = oAuth2User.getAttribute("email");
 
-        String username = oAuth2User.getAttribute("name");
-        String email = oAuth2User.getAttribute("email");
-
-        User existingUser = userRepository.findByEmail(email);
-        if (existingUser == null) {
-            User newUser = new User();
-            newUser.setUsername(username);
-            newUser.setEmail(email);
-            userRepository.save(newUser);
-        }
+    if (email == null) {
+        response.sendRedirect("/login?error=email_not_found");
+        return;
     }
+
+    User existingUser = userRepository.findByEmail(email);
+    if (existingUser == null) {
+        User newUser = new User();
+        newUser.setUsername(username);
+        newUser.setEmail(email);
+        userRepository.save(newUser);
+    }
+
+    response.sendRedirect("/dashboard");
+}
 }
